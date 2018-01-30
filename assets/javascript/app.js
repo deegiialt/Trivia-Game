@@ -75,15 +75,14 @@ $(document).ready(function() {
 	
 	//renderQuestions function. puts the vars on the DOM (*don't call yet)
 	function render() {
-		//clear time for restart, then decrement time by 1s each
+		//clear time for restart
 		clearInterval(intervalId);
-		intervalId = setInterval(decrement, 1000);
 	 	//time remaining	
 		$("#timeRemaining").html(number);
 		//questions
-		$("#questionOnPage").append(questionArray[0]);
+		$("#questionOnPage").append(//loop//);
 		//answer options (append each one)
-		$("#options").append(optionSetOneArray[0,1,2,3]);
+		$("#options").append(//loop//);
 	};
 
 
@@ -102,24 +101,25 @@ $(document).ready(function() {
 
 		//On-click event for start
 		$("#startButton").on("click", function() {
-		//show on page questions section (ids= timeRemaining, questionOnPage, options)
-		$("#timeRemaining").show();
-		$("#questionOnPage").show();
-		$("#options").show();
+			//show on page questions section (ids= timeRemaining, questionOnPage, options)
+			$("#timeRemaining").show();
+			$("#questionOnPage").show();
+			$("#options").show();
 
-		//for loop for each q (for var __ in __questions_)
-		for() {
+			//for loop for each q (for var __ in __questions_)
+			for(i = 0; questionArray.length; i++) {
 
-		}
-			//var timeRemaining: 30 sec each q
-			//each q time is decremented by 1000 (1s)
-			//if/else
-				//if time ends or answer selected show image
-				//new if correct show correct message, correct++
-					//else if incorrect show incorrect message, incorrect++
-					//else if out of time show out of time message, outOfTime++
-					//then on to next question after 5 seconds
-				//if last q time is done, call gameOver.
+				//var timeRemaining: 30 sec each q
+				//each q time is decremented by 1000 (1s)
+				intervalId = setInterval(decrement, 1000);
+				//if/else
+					//if time ends or answer selected show image
+					//new if correct show correct message, correct++
+						//else if incorrect show incorrect message, incorrect++
+						//else if out of time show out of time message, outOfTime++
+						//then on to next question after 5 seconds
+					//if last q time is done, call gameOver.
+			}
 		});
 	};
 
@@ -148,7 +148,7 @@ $(document).ready(function() {
 		});
 			
 	};
-	
+
 	//reset
 	function reset() {
 		var correctCount = 0;
