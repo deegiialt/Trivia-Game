@@ -11,17 +11,50 @@
 		
 		<!--Main Page-->
 		<!--START PAGE-->
-		<div id="title">Movie Trivia</div>
-		<button type="button" class="btn btn-default" id="startButton">START</button>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1 id="title">Movie Trivia</h1>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<button type="button" class="btn btn-default" id="startButton">START</button>
+			</div>
+			<div class="col-md-4"></div>
+		</div>			
 
 		<!-- Questions -->
-		<div class="timeRemainingText">Time remaining: <span id="timeRemaining"></span></div>
-		<div id="questionOnPage"></div>
-		<div id="options"></div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">		
+				<div class="timeRemainingText">Time remaining: <span id="timeRemaining"></span> secs</div>
+				<div id="questionOnPage"></div>
+				<div id="options">
+					<button type="button" class="btn btn-default" id="buttonOne"></button>
+					<br>
+					<button type="button" class="btn btn-default" id="buttonTwo"></button>
+					<br>
+					<button type="button" class="btn btn-default" id="buttonThree"></button>
+					<br>
+					<button type="button" class="btn btn-default" id="buttonFour"></button>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
 		
 		<!-- END OF GAME -->
-		<div class="endMessage">Game over! Here's how you did: <span id="showStats"></span></div>
-		<button type="button" class="btn btn-default" id="endButton">Start Over?</button>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">		
+				<div class="endMessage">Game over! Here's how you did: <span id="showStats"></span></div>
+				<button type="button" class="btn btn-default" id="endButton">Start Over?</button>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
 
 		<!-- jQuery -->
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -29,6 +62,6 @@
     	<!-- Script -->
 		<script src="assets/javascript/app.js">
 		</script>
-
+	</div>
 	</body>
 </html>

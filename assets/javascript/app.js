@@ -54,9 +54,11 @@
 
 
 
+	//counter to keep track of which set of questions user is currently on
+	var counter = 0;
 
-	//testing object
-	console.log(questions.optionSetOne[0].o1)
+	//variable to hold what option user picked
+	var userPicked = null;
 
 	//var counters for correct, incorrect, out of time
 	var correctCount = 0;
@@ -64,7 +66,7 @@
 	var outOfTime = 0;
 
 	//variables for time
-	var number = 30000;
+	var givenTime = 30;
 	var intervalId;
 		
 
@@ -73,31 +75,55 @@ $(document).ready(function() {
 	//Functions
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	
-	//renderQuestions function. puts the vars on the DOM (*don't call yet)
-	function render() {
-		//clear time for restart
-		clearInterval(intervalId);
-	 	//time remaining	
-		$("#timeRemaining").html(number);
-		//questions
-		$("#questionOnPage").append(//loop//);
-		//answer options (append each one)
-		$("#options").append(//loop//);
+	// //renderQuestions function. puts the vars on the DOM (*don't call yet)
+	// function render() {
+	// 	//clear time for restart
+	// 	clearInterval(intervalId);
+	//  	//time remaining	
+	// 	$("#timeRemaining").html(number);
+	// 	//questions
+	// 	$("#questionOnPage").append(;
+	// 	//answer options (append each one)
+	// 	$("#options").append(//loop//);
+	// };
+
+	//time function
+	function time() {
+		givenTime--;
+		if (givenTime <= 0) {
+			setTimeout(function() {
+				nextQuestion();
+			});
+		} else {
+			$("#timeRemaining").html(givenTime);
+		}
 	};
 
+	//next question function
+	function nextQuestion() {
+		counter++;
+		clearInterval(intervalId);
+		var givenTime = 30;
+		$("#timeRemaining").html("");
+		setTimeout(function () {
+			render();
+			reset();
+		}, 5000);
 
-	function decrement() {
-		number--;
-	}
+		if(counter == questionArray.length) {
+			count = 0;
+		}
+	};
 
 	//start game
 	function startGame() {
-		//call render
-		render();
+		//call reset
+		reset();
 		//show on page (.show()) start page and start button ( id= startButton)
 		$("#timeRemaining").hide();
 		$(".endMessage").hide();
 		$("#endButton").hide();
+		$("#options").hide();
 
 		//On-click event for start
 		$("#startButton").on("click", function() {
@@ -113,8 +139,14 @@ $(document).ready(function() {
 				//each q time is decremented by 1000 (1s)
 				intervalId = setInterval(decrement, 1000);
 				//if/else
-					//if time ends or answer selected show image
+				//if time ends or answer selected show image
+				if(intervalId == 0 || ) {
+
+				};
 					//new if correct show correct message, correct++
+					if(userPicked == correctOptions) {
+
+					};
 						//else if incorrect show incorrect message, incorrect++
 						//else if out of time show out of time message, outOfTime++
 						//then on to next question after 5 seconds
@@ -156,8 +188,10 @@ $(document).ready(function() {
 		var outOfTime = 0;
 
 		//variables for time
-		var number = 30000;
-		var intervalId;
+		var givenTime = 30;
+
+		//sets page index to 0
+		var counter = 0;
 	};
 });
 
